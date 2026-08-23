@@ -25,6 +25,8 @@
     --marigold: #c98a2e;
     --marigold-pale: #f7e6bf;
     --gray-pale: #e2e9f2;
+    --mint: #2f6b4f;
+    --mint-pale: #dcf3e7;
     --shadow: 0 1px 2px rgba(31,42,68,0.08), 0 8px 24px -12px rgba(31,42,68,0.22);
     color-scheme: light;
   }
@@ -48,6 +50,8 @@
       --marigold: #d9ab63;
       --marigold-pale: #3c331f;
       --gray-pale: #232d4d;
+      --mint: #8fd6b0;
+      --mint-pale: #1e3b2e;
       --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
       color-scheme: dark;
     }
@@ -71,6 +75,8 @@
     --marigold: #d9ab63;
     --marigold-pale: #3c331f;
     --gray-pale: #232d4d;
+    --mint: #8fd6b0;
+    --mint-pale: #1e3b2e;
     --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
     color-scheme: dark;
   }
@@ -331,38 +337,62 @@
   .legend { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 20px; font-size: 13.5px; color: var(--ink-soft); }
   .legend .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; margin-right: 6px; }
 
-  .weekdays, .caldays {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 6px;
-  }
-  .weekdays { margin-bottom: 8px; }
-  .weekdays span {
-    text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 0.06em;
-    text-transform: uppercase; color: var(--ink-faint); padding-bottom: 4px;
-  }
+  .caldays { display: flex; flex-direction: column; gap: 10px; }
   .day {
-    aspect-ratio: 1 / 1.1;
-    border-radius: 12px;
-    background: var(--surface-soft);
+    border-radius: 16px;
+    background: var(--surface);
     border: 1px solid var(--line);
-    padding: 8px 8px 6px;
-    display: flex; flex-direction: column; gap: 5px;
-    min-height: 88px;
+    padding: 14px 16px;
+    display: flex; flex-direction: row; align-items: center; gap: 16px;
     text-align: left;
     font: inherit;
     width: 100%;
   }
-  .day.empty { background: transparent; border-color: transparent; }
-  .day .num { font-family: 'Work Sans', sans-serif; font-weight: 600; font-size: 13px; font-variant-numeric: tabular-nums; color: var(--ink); }
-  .day .num::before { content: none; }
-  .day-body { display: contents; }
-  .day .sitrow { display: flex; align-items: flex-start; gap: 5px; font-size: 10px; line-height: 1.25; color: var(--ink-soft); }
-  .day .sitrow .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 3px; }
-  .day .sitrow .sit-info { display: flex; flex-direction: column; }
-  .day .sitrow .sit-name { font-weight: 600; color: var(--ink); }
-  .day .sitrow .sit-time { font-variant-numeric: tabular-nums; }
-  .day.today { border-color: var(--marigold); box-shadow: 0 0 0 2px var(--marigold-pale) inset; }
+  .date-badge {
+    flex-shrink: 0;
+    width: 54px;
+    border-radius: 14px;
+    background: var(--mint-pale);
+    color: var(--mint);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 4px;
+  }
+  .date-badge .badge-wd {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .date-badge .badge-num {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 1.15;
+    margin-top: 2px;
+    font-variant-numeric: tabular-nums;
+  }
+  .day-content { flex: 1; min-width: 0; }
+  .day-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 16.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .day-body { display: flex; flex-direction: column; gap: 4px; }
+  .day .sitrow { display: flex; align-items: center; gap: 6px; font-size: 12.5px; line-height: 1.25; color: var(--ink-soft); }
+  .day .sitrow .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .day .sitrow .sit-info { display: flex; flex-direction: row; align-items: baseline; justify-content: space-between; flex: 1; gap: 8px; }
+  .day .sitrow .sit-name { font-weight: 600; color: var(--ink); flex-shrink: 0; width: 44px; }
+  .day .sitrow .sit-time { font-variant-numeric: tabular-nums; text-align: right; font-size: 12px; }
+  .day.today { border-color: var(--coral); box-shadow: 0 0 0 2px var(--coral-pale) inset; }
+  .day.today .date-badge { background: var(--coral-pale); color: var(--coral-deep); }
+
+  .cal-empty { padding: 26px 10px; text-align: center; color: var(--ink-faint); font-size: 14.5px; }
 
   .status-open { background: var(--leaf); }
   .status-limited { background: var(--marigold); }
@@ -490,47 +520,10 @@
 
   @media (max-width: 640px) {
     .cal-panel { padding: 20px 16px; }
-    .weekdays { display: none; }
-    .caldays { grid-template-columns: 1fr; gap: 8px; }
-    .day.empty { display: none; }
-    .day {
-      aspect-ratio: unset;
-      min-height: unset;
-      flex-direction: row;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 12px;
-      border-radius: 12px;
-    }
-    .day .num {
-      flex-shrink: 0;
-      width: 40px;
-      text-align: center;
-      font-size: 15px;
-    }
-    .day .num::before {
-      content: attr(data-wd);
-      display: block;
-      font-family: 'Work Sans', sans-serif;
-      font-weight: 700;
-      font-size: 10px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      margin-bottom: 2px;
-    }
-    .day-body { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 0; }
-    .day .sitrow { align-items: center; font-size: 12.5px; gap: 6px; }
-    .day .sitrow .dot { margin-top: 0; }
-    .day .sitrow .sit-info {
-      flex-direction: row;
-      align-items: baseline;
-      justify-content: space-between;
-      flex: 1;
-      gap: 8px;
-    }
-    .day .sitrow .sit-name { flex-shrink: 0; width: 38px; }
-    .day .sitrow .sit-time { text-align: right; font-size: 12px; }
+    .day { padding: 12px; gap: 12px; }
+    .date-badge { width: 46px; padding: 7px 3px; }
+    .date-badge .badge-num { font-size: 17px; }
+    .day-title { font-size: 15.5px; }
     .value { grid-template-columns: 40px 1fr; padding: 20px; }
   }
 </style>
@@ -688,12 +681,8 @@
       <div class="legend">
         <span><span class="dot status-open"></span>Available</span>
         <span><span class="dot status-limited"></span>Limited hours</span>
-        <span><span class="dot status-closed"></span>Unavailable</span>
       </div>
 
-      <div class="weekdays">
-        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
-      </div>
       <div class="caldays" id="calDays"></div>
 
       <div class="cal-footnote">
@@ -914,74 +903,87 @@
     monthLabelEl.textContent = first.toLocaleDateString(undefined, { month: 'long', year: 'numeric' });
     daysEl.innerHTML = '';
 
-    for (let i = 0; i < startDay; i++) {
-      const empty = document.createElement('div');
-      empty.className = 'day empty';
-      daysEl.appendChild(empty);
-    }
+    let shown = 0;
 
     for (let d = 1; d <= daysInMonth; d++) {
       const key = dateKey(viewYear, viewMonth, d);
       const info = AVAILABILITY[key] || { vy: { status: 'closed' }, emma: { status: 'closed' } };
-      const anyOpen = info.vy.status !== 'closed' || info.emma.status !== 'closed';
+      const availableSitters = [['Vy', info.vy], ['Emma', info.emma]].filter(([, sit]) => sit.status !== 'closed');
 
-      const cell = document.createElement(anyOpen ? 'button' : 'div');
-      cell.className = 'day' + (anyOpen ? ' pickable' : '');
-      if (anyOpen) {
-        cell.type = 'button';
-        cell.setAttribute('aria-label', `Request booking on ${key}`);
-      }
+      // Condensed view: only list dates that actually have an opening.
+      if (availableSitters.length === 0) continue;
+      shown++;
+
+      const cell = document.createElement('button');
+      cell.className = 'day pickable';
+      cell.type = 'button';
+      cell.setAttribute('aria-label', `Request booking on ${key}`);
 
       const isToday = viewYear === today.getFullYear() && viewMonth === today.getMonth() && d === today.getDate();
       if (isToday) cell.classList.add('today');
 
-      const wd = new Date(viewYear, viewMonth, d).getDay();
-      const num = document.createElement('div');
-      num.className = 'num';
-      num.textContent = d;
-      num.setAttribute('data-wd', WEEKDAY_ABBR[wd]);
-      cell.appendChild(num);
+      const dateObj = new Date(viewYear, viewMonth, d);
+      const wd = dateObj.getDay();
+
+      const badge = document.createElement('div');
+      badge.className = 'date-badge';
+      badge.innerHTML = `<span class="badge-wd">${WEEKDAY_ABBR[wd]}</span><span class="badge-num">${d}</span>`;
+      cell.appendChild(badge);
+
+      const content = document.createElement('div');
+      content.className = 'day-content';
+      cell.appendChild(content);
+
+      const title = document.createElement('div');
+      title.className = 'day-title';
+      title.textContent = dateObj.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
+      content.appendChild(title);
 
       const body = document.createElement('div');
       body.className = 'day-body';
-      cell.appendChild(body);
+      content.appendChild(body);
 
-      [['Vy', info.vy], ['Emma', info.emma]].forEach(([name, sit]) => {
+      availableSitters.forEach(([name, sit]) => {
         const row = document.createElement('div');
         row.className = 'sitrow';
-        const timeText = sit.status === 'closed' ? STATUS_LABEL.closed : (sit.time || STATUS_LABEL[sit.status]);
+        const timeText = sit.time || STATUS_LABEL[sit.status];
         row.innerHTML = `<span class="dot status-${sit.status}"></span><span class="sit-info"><span class="sit-name">${name}</span><span class="sit-time">${timeText}</span></span>`;
         body.appendChild(row);
       });
 
-      if (anyOpen) {
-        cell.addEventListener('click', () => {
-          const preferred = info.vy.status !== 'closed' && info.emma.status === 'closed' ? 'Vy'
-            : info.emma.status !== 'closed' && info.vy.status === 'closed' ? 'Emma' : 'Either';
-          document.getElementById('bookDate').value = key;
-          document.getElementById('sitterSelect').value = preferred;
-          const preferredInfo = preferred === 'Vy' ? info.vy : preferred === 'Emma' ? info.emma : (info.vy.status !== 'closed' ? info.vy : info.emma);
-          if (preferredInfo && preferredInfo.time) {
-            const parts = preferredInfo.time.split('–').map(s => s.trim());
-            const to24 = (t) => {
-              const m = t.match(/(\d+):(\d+)\s*(AM|PM)/i);
-              if (!m) return '';
-              let h = parseInt(m[1], 10);
-              const min = m[2];
-              const ap = m[3].toUpperCase();
-              if (ap === 'PM' && h !== 12) h += 12;
-              if (ap === 'AM' && h === 12) h = 0;
-              return `${pad(h)}:${min}`;
-            };
-            if (parts[0]) document.getElementById('startTime').value = to24(parts[0]);
-            if (parts[1]) document.getElementById('endTime').value = to24(parts[1]);
-          }
-          document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
-          document.getElementById('parentName').focus({ preventScroll: true });
-        });
-      }
+      cell.addEventListener('click', () => {
+        const preferred = info.vy.status !== 'closed' && info.emma.status === 'closed' ? 'Vy'
+          : info.emma.status !== 'closed' && info.vy.status === 'closed' ? 'Emma' : 'Either';
+        document.getElementById('bookDate').value = key;
+        document.getElementById('sitterSelect').value = preferred;
+        const preferredInfo = preferred === 'Vy' ? info.vy : preferred === 'Emma' ? info.emma : (info.vy.status !== 'closed' ? info.vy : info.emma);
+        if (preferredInfo && preferredInfo.time) {
+          const parts = preferredInfo.time.split('–').map(s => s.trim());
+          const to24 = (t) => {
+            const m = t.match(/(\d+):(\d+)\s*(AM|PM)/i);
+            if (!m) return '';
+            let h = parseInt(m[1], 10);
+            const min = m[2];
+            const ap = m[3].toUpperCase();
+            if (ap === 'PM' && h !== 12) h += 12;
+            if (ap === 'AM' && h === 12) h = 0;
+            return `${pad(h)}:${min}`;
+          };
+          if (parts[0]) document.getElementById('startTime').value = to24(parts[0]);
+          if (parts[1]) document.getElementById('endTime').value = to24(parts[1]);
+        }
+        document.getElementById('booking').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        document.getElementById('parentName').focus({ preventScroll: true });
+      });
 
       daysEl.appendChild(cell);
+    }
+
+    if (shown === 0) {
+      const empty = document.createElement('div');
+      empty.className = 'cal-empty';
+      empty.textContent = 'No openings this month yet — check back soon, or try another month.';
+      daysEl.appendChild(empty);
     }
   }
 
