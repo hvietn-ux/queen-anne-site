@@ -527,10 +527,10 @@
     .value { grid-template-columns: 40px 1fr; padding: 20px; }
   }
 </style>
-
-
 </head>
 <body>
+
+
 <header class="hero">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
@@ -657,7 +657,7 @@
       <div class="detail">
         <div class="label">Drop-off &amp; pickup</div>
         <div class="value-text">By car, by parent</div>
-        <div class="note">Sitting happens at your house &mdash; please pick your sitter up, drive them to you, and drop them back home when the sitting's done</div>
+        <div class="note">Sitting happens at your house. For Vy, please pick her up, drive her to you, and drop her back home when the sitting's done. For Emma, her mom will drop her off and pick her back up.</div>
       </div>
     </div>
   </section>
@@ -830,16 +830,35 @@
     "2026-08-30": { vy: { status: "open",    time: "9:00 AM – 5:00 PM" }, emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
     "2026-08-31": { vy: { status: "limited", time: "4:00 PM – 6:00 PM" }, emma: { status: "closed" } },
 
-    "2026-09-01": { vy: { status: "open",    time: "9:00 AM – 3:00 PM" }, emma: { status: "open",    time: "9:00 AM – 3:00 PM" } },
-    "2026-09-02": { vy: { status: "open",    time: "1:00 PM – 6:00 PM" }, emma: { status: "limited", time: "5:00 PM – 7:00 PM" } },
-    "2026-09-05": { vy: { status: "open",    time: "9:00 AM – 5:00 PM" }, emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-01": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 3:00 PM" } },
+    "2026-09-02": { vy: { status: "closed" },                              emma: { status: "limited", time: "5:00 PM – 7:00 PM" } },
+    "2026-09-03": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-04": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-05": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
     "2026-09-06": { vy: { status: "closed" },                              emma: { status: "open",    time: "10:00 AM – 4:00 PM" } },
-    "2026-09-12": { vy: { status: "open",    time: "9:00 AM – 5:00 PM" }, emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-08": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-09": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-10": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-12": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
     "2026-09-13": { vy: { status: "limited", time: "4:00 PM – 6:00 PM" }, emma: { status: "open",    time: "10:00 AM – 4:00 PM" } },
-    "2026-09-19": { vy: { status: "open",    time: "9:00 AM – 5:00 PM" }, emma: { status: "closed" } },
-    "2026-09-20": { vy: { status: "open",    time: "9:00 AM – 5:00 PM" }, emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-14": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-15": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-16": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-17": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-18": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-19": { vy: { status: "closed" },                              emma: { status: "closed" } },
+    "2026-09-20": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-21": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-22": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-23": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-24": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
     "2026-09-26": { vy: { status: "open",    time: "9:00 AM – 5:00 PM" }, emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-27": { vy: { status: "open",    time: "10:00 AM – 4:00 PM" }, emma: { status: "limited", time: "5:00 PM – 7:00 PM" } }
+    "2026-09-27": { vy: { status: "open",    time: "10:00 AM – 4:00 PM" }, emma: { status: "limited", time: "5:00 PM – 7:00 PM" } },
+    "2026-09-28": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-29": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    "2026-09-30": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+
+    "2026-10-01": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } }
   };
   /* ===================================================================== */
 
@@ -852,7 +871,7 @@
      placeholder once you have an address for her.
      ========================================================================= */
   const VY_EMAIL = "vyhoang@seattleacademy.org";
-  const EMMA_EMAIL = "PUT-YOUR-EMAIL-HERE@example.com";
+  const EMMA_EMAIL = "Emma@jedbrown.net";
   /* ===================================================================== */
 
   /* =========================================================================
@@ -879,6 +898,16 @@
   const FORMSPREE_FORM_ID = "mwlezdpv";
   const FORMSPREE_CONFIGURED = FORMSPREE_FORM_ID.indexOf('PUT-YOUR-FORMSPREE-FORM-ID-HERE') === -1;
   const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_FORM_ID}`;
+
+  /* Second Formspree form, notifying Emma's family. Create a free form at
+     formspree.io the same way as above, add Emma@jedbrown.net (and anyone
+     else who should hear about Emma's bookings) as its notification
+     email(s), then paste its Form ID below, replacing the placeholder.
+     A booking for "Vy" posts only to the form above. A booking for
+     "Emma" posts only to this one. "Either" posts to both. */
+  const EMMA_FORMSPREE_FORM_ID = "PUT-EMMA-FORMSPREE-FORM-ID-HERE";
+  const EMMA_FORMSPREE_CONFIGURED = EMMA_FORMSPREE_FORM_ID.indexOf('PUT-EMMA-FORMSPREE-FORM-ID-HERE') === -1;
+  const EMMA_FORMSPREE_ENDPOINT = `https://formspree.io/f/${EMMA_FORMSPREE_FORM_ID}`;
   /* ===================================================================== */
 
   const STATUS_LABEL = { open: "Open", limited: "Limited", closed: "Not available" };
@@ -1114,20 +1143,37 @@ Reply to this email to confirm or let them know if it doesn't work.`;
       formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
-    if (FORMSPREE_CONFIGURED) {
-      const fd = new FormData();
-      fd.append('_subject', subject);
-      if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(parentContact)) fd.append('_replyto', parentContact);
-      fd.append('parent_name', parentName);
-      fd.append('parent_contact', parentContact);
-      fd.append('preferred_sitter', sitter);
-      fd.append('message', body);
+    // Which Formspree form(s) this booking should notify: Vy's form for
+    // "Vy", Emma's form for "Emma", both for "Either".
+    const targetEndpoints = [];
+    if (sitter === 'Vy' || sitter === 'Either') targetEndpoints.push(FORMSPREE_ENDPOINT);
+    if (sitter === 'Emma' || sitter === 'Either') targetEndpoints.push(EMMA_FORMSPREE_ENDPOINT);
+    const allTargetsConfigured =
+      (sitter !== 'Vy' || FORMSPREE_CONFIGURED) &&
+      (sitter !== 'Emma' || EMMA_FORMSPREE_CONFIGURED) &&
+      (sitter !== 'Either' || (FORMSPREE_CONFIGURED && EMMA_FORMSPREE_CONFIGURED));
+
+    if (allTargetsConfigured && targetEndpoints.length) {
+      const makeFormData = () => {
+        const fd = new FormData();
+        fd.append('_subject', subject);
+        if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(parentContact)) fd.append('_replyto', parentContact);
+        fd.append('parent_name', parentName);
+        fd.append('parent_contact', parentContact);
+        fd.append('preferred_sitter', sitter);
+        fd.append('message', body);
+        return fd;
+      };
 
       formStatus.className = 'form-status';
       formStatus.textContent = 'Sending your request…';
 
-      fetch(FORMSPREE_ENDPOINT, { method: 'POST', headers: { Accept: 'application/json' }, body: fd })
-        .then(res => { if (res.ok) { showAutoSendSuccess(); } else { showMailtoFallback(); } })
+      Promise.all(targetEndpoints.map(endpoint =>
+        fetch(endpoint, { method: 'POST', headers: { Accept: 'application/json' }, body: makeFormData() })
+      ))
+        .then(responses => {
+          if (responses.every(res => res.ok)) { showAutoSendSuccess(); } else { showMailtoFallback(); }
+        })
         .catch(() => { showMailtoFallback(); });
     } else {
       showMailtoFallback();
@@ -1152,6 +1198,5 @@ Reply to this email to confirm or let them know if it doesn't work.`;
 
 })();
 </script>
-
 </body>
 </html>
