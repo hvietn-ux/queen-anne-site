@@ -686,7 +686,7 @@
       <div class="caldays" id="calDays"></div>
 
       <div class="cal-footnote">
-        <strong>See a day that works?</strong> Tap it to start a booking request below &mdash; cash paid at pickup, no accounts or apps needed.
+        <strong>See a day that works?</strong> Tap it to start a booking request below &mdash; cash paid at pickup, no accounts or apps needed. The times shown are when a sitter's free to start &mdash; once you request a booking, you can set the start and end time to whatever works for you.
       </div>
     </div>
   </section>
@@ -739,6 +739,9 @@
           <span>End time</span>
           <input type="time" name="endTime" id="endTime" required>
         </label>
+        <div class="field field-wide" style="font-weight: 400; color: var(--ink-faint); font-size: 13px; margin-top: -8px;">
+          These are just prefilled from the calendar &mdash; feel free to change them to whatever start and end time (or how long) you actually need.
+        </div>
         <label class="field field-wide">
           <span>Your address (where the sitting happens)</span>
           <input type="text" name="address" id="address" required placeholder="Street address in Queen Anne or Magnolia">
@@ -830,35 +833,37 @@
     "2026-08-30": { vy: { status: "open",    time: "9:00 AM – 5:00 PM" }, emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
     "2026-08-31": { vy: { status: "limited", time: "4:00 PM – 6:00 PM" }, emma: { status: "closed" } },
 
-    "2026-09-01": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 3:00 PM" } },
-    "2026-09-02": { vy: { status: "closed" },                              emma: { status: "limited", time: "5:00 PM – 7:00 PM" } },
-    "2026-09-03": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-04": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-05": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-06": { vy: { status: "closed" },                              emma: { status: "open",    time: "10:00 AM – 4:00 PM" } },
-    "2026-09-08": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-09": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-10": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-12": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-13": { vy: { status: "limited", time: "4:00 PM – 6:00 PM" }, emma: { status: "open",    time: "10:00 AM – 4:00 PM" } },
-    "2026-09-14": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-15": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-16": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-17": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-18": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-19": { vy: { status: "closed" },                              emma: { status: "closed" } },
-    "2026-09-20": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-21": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-22": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-23": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-24": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-26": { vy: { status: "open",    time: "9:00 AM – 5:00 PM" }, emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-27": { vy: { status: "open",    time: "10:00 AM – 4:00 PM" }, emma: { status: "limited", time: "5:00 PM – 7:00 PM" } },
-    "2026-09-28": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-29": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
-    "2026-09-30": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } },
+    /* Emma's confirmed Sept/Oct schedule (per her family, 2026-08-27):
+       Fridays both months — open after 4:50 PM.
+       Sept — open Sat 19; Sun 13 & 20 depend on soccer (not yet released).
+       Oct — open Sat 3, 10, 17, 24; Sun 4, 11, 18, 25 (soccer schedule
+       still pending, so these are marked "limited" too — confirm once
+       released). Days not listed below are closed for Emma.
+       Vy's October schedule hasn't been given yet, so Oct days default
+       closed for her except where noted. */
+    "2026-09-04": { vy: { status: "closed" },                              emma: { status: "open",    time: "After 4:50 PM" } },
+    "2026-09-11": { vy: { status: "closed" },                              emma: { status: "open",    time: "After 4:50 PM" } },
+    "2026-09-13": { vy: { status: "limited", time: "4:00 PM – 6:00 PM" }, emma: { status: "limited", time: "Depends on soccer schedule (TBD)" } },
+    "2026-09-18": { vy: { status: "closed" },                              emma: { status: "open",    time: "After 4:50 PM" } },
+    "2026-09-19": { vy: { status: "closed" },                              emma: { status: "open",    time: "All day" } },
+    "2026-09-20": { vy: { status: "closed" },                              emma: { status: "limited", time: "Depends on soccer schedule (TBD)" } },
+    "2026-09-25": { vy: { status: "closed" },                              emma: { status: "open",    time: "After 4:50 PM" } },
+    "2026-09-26": { vy: { status: "open",    time: "9:00 AM – 5:00 PM" }, emma: { status: "closed" } },
+    "2026-09-27": { vy: { status: "open",    time: "10:00 AM – 4:00 PM" }, emma: { status: "closed" } },
 
-    "2026-10-01": { vy: { status: "closed" },                              emma: { status: "open",    time: "9:00 AM – 5:00 PM" } }
+    "2026-10-02": { vy: { status: "closed" },                              emma: { status: "open",    time: "After 4:50 PM" } },
+    "2026-10-03": { vy: { status: "closed" },                              emma: { status: "open",    time: "All day" } },
+    "2026-10-04": { vy: { status: "closed" },                              emma: { status: "limited", time: "Depends on soccer schedule (TBD)" } },
+    "2026-10-09": { vy: { status: "closed" },                              emma: { status: "open",    time: "After 4:50 PM" } },
+    "2026-10-10": { vy: { status: "closed" },                              emma: { status: "open",    time: "All day" } },
+    "2026-10-11": { vy: { status: "closed" },                              emma: { status: "limited", time: "Depends on soccer schedule (TBD)" } },
+    "2026-10-16": { vy: { status: "closed" },                              emma: { status: "open",    time: "After 4:50 PM" } },
+    "2026-10-17": { vy: { status: "closed" },                              emma: { status: "open",    time: "All day" } },
+    "2026-10-18": { vy: { status: "closed" },                              emma: { status: "limited", time: "Depends on soccer schedule (TBD)" } },
+    "2026-10-23": { vy: { status: "closed" },                              emma: { status: "open",    time: "After 4:50 PM" } },
+    "2026-10-24": { vy: { status: "closed" },                              emma: { status: "open",    time: "All day" } },
+    "2026-10-25": { vy: { status: "closed" },                              emma: { status: "limited", time: "Depends on soccer schedule (TBD)" } },
+    "2026-10-30": { vy: { status: "closed" },                              emma: { status: "open",    time: "After 4:50 PM" } }
   };
   /* ===================================================================== */
 
